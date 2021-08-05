@@ -2,7 +2,7 @@
 
 namespace SimpleUploaderAPI.Models
 {
-    public class FileDataModel : BaseModel
+    public class FileDataModel
     {
         public string FileName { get; set; }
         public long FileSize { get; set; }
