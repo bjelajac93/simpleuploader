@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SimpleUploaderAPI.Data.Migrations
 {
     [DbContext(typeof(ApplicantContext))]
-    [Migration("20210804220828_Initial")]
+    [Migration("20210806090845_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -34,6 +34,15 @@ namespace SimpleUploaderAPI
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddDbContextPool<ApplicantContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyAllowSpecificOrigins",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200");
+                                  });
+            });
             services.AddControllers();
 
             // configure DI for application services
@@ -69,6 +78,8 @@ namespace SimpleUploaderAPI
             });
 
             app.UseRouting();
+
+            app.UseCors("MyAllowSpecificOrigins");
 
             app.UseAuthorization();
 
